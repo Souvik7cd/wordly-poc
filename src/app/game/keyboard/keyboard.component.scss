@@ -1,7 +1,12 @@
 button {
-  width: 30px;
+  margin: 2px;
+}
+button.btn-key {
+  width: 32px;
   height: 42px;
   padding: 2px;
-  margin: 2px;
-  font-weight: bold;
+  font-size: 1.2rem;
+}
+button.btn-action {
+  width: 56px;
 }
