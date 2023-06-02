@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-keyboard',
@@ -13,7 +14,17 @@ export class KeyboardComponent {
     [ 'Z', 	'X', 	'C', 	'V', 	'B', 	'N', 	'M' ]
   ];
 
-  onKeyClick(letter: string) {
-    console.log(letter);
+  constructor(private gameService: GameService) {}
+
+  onLetterKeyClick(letter: string) {
+    this.gameService.nextLetter(letter);
+  }
+
+  onEnterKeyClick() {
+    this.gameService.nextLetter(this.gameService.enterKey);
+  }
+
+  onBKSPKeyClick() {
+    this.gameService.nextLetter(this.gameService.cursor);
   }
 }

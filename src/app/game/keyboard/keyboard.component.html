@@ -1,23 +1,23 @@
 <div class="d-flex flex-column align-items-center mt-2">
   <!-- Keyboard -->
   <div class="d-flex flex-row">
-    <button class="btn btn-key btn-sm btn-success" *ngFor="let key of keys[0]" (click)="onKeyClick(key)">
+    <button class="btn btn-key btn-sm btn-success" *ngFor="let key of keys[0]" (click)="onLetterKeyClick(key)">
       {{ key }}
     </button>
   </div>
   <div class="d-flex flex-row">
-    <button class="btn btn-key btn-sm btn-success" *ngFor="let key of keys[1]" (click)="onKeyClick(key)">
+    <button class="btn btn-key btn-sm btn-success" *ngFor="let key of keys[1]" (click)="onLetterKeyClick(key)">
       {{ key }}
     </button>
   </div>
   <div class="d-flex flex-row">
-    <button class="btn btn-action btn-sm btn-success">
+    <button (click)="onEnterKeyClick()" class="btn btn-action btn-sm btn-success">
       <span style="font-size: small;">ENTER</span>
     </button>
-    <button class="btn btn-key btn-sm btn-success" *ngFor="let key of keys[2]" (click)="onKeyClick(key)">
+    <button class="btn btn-key btn-sm btn-success" *ngFor="let key of keys[2]" (click)="onLetterKeyClick(key)">
       {{ key }}
     </button>
-    <button class="btn btn-action btn-sm btn-success">
+    <button (click)="onBKSPKeyClick()" class="btn btn-action btn-sm btn-success">
       <i class="bi bi-backspace fs-5"></i>
     </button>
   </div>
