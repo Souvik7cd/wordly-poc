@@ -1,0 +1,23 @@
+<!-- Player Profiles -->
+
+<!-- Game -->
+<section class="game fs-4">
+  <span id="word">{{ word | uppercase }}</span>
+  <span id="cursor" class="ms-2 p-2" [ngClass]="{'badge bg-primary fs-4 fw-medium ': cursor !== cursorDefault}">{{cursor}}</span>
+</section>
+
+<!-- Interaction Zone -->
+
+<div class="interaction-zone d-flex flex-column align-items-center">
+
+  <!-- Challenge Btn -->
+  <button class="btn btn-danger fs-5 rounded-pill" style="width: 360px;">
+    !!&nbsp;&nbsp;&nbsp;CHALLENGE&nbsp;&nbsp;&nbsp;!!
+  </button>
+
+  <!-- Cards -->
+
+  <!-- Keyboard -->
+  <app-keyboard></app-keyboard>
+
+</div>

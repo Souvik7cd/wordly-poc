@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { GameComponent } from './game/game.component';
+import { KeyboardComponent } from './game/keyboard/keyboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent,
+    KeyboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+.game {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  word-break: break-word;
+  max-width: 360px;
+  font-family: monospace;
+}
+.interaction-zone {
+  position: absolute;
+  bottom: 0;
+  left: 25vw;
+  right: 25vw;
+  padding: 4vh 0;
+}
