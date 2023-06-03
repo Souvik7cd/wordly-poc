@@ -11,7 +11,7 @@ export class GameService {
     { playerId: '#ALCX145', userName: 'Alice' },
     { playerId: '#BOBA214', userName: 'Bob' },
     { playerId: '#RCHD754', userName: 'Rich' },
-    { playerId: '#MICS154', userName: 'Michael' },
+    { playerId: '#MICS154', userName: 'Michael Scott' },
     { playerId: '#PAMH754', userName: 'Pamela' },
   ];
 

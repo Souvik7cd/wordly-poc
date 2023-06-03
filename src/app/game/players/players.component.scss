@@ -1,6 +1,12 @@
 .current-player {
   width: 80px;
+  border-bottom: 3px solid lightseagreen!important;
 }
 .non-current-player {
   width: 60px;
+}
+.user-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
