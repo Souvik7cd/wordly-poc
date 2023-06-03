@@ -2,9 +2,13 @@
 <app-players></app-players>
 
 <!-- Game -->
-<section class="game fs-4">
-  <span id="word">{{ word | uppercase }}</span>
-  <span id="cursor" class="ms-2 p-2" [ngClass]="{'badge bg-primary fs-4 fw-medium ': cursor !== cursorDefault}">{{cursor}}</span>
+<section class="game card mx-auto fs-4 shadow-sm bg-light-subtle border">
+  <div class="word">
+    <span id="word">{{ word | uppercase }}</span>
+    <span id="cursor" class="ms-2 p-2"
+      [ngClass]="{'badge bg-primary bg-gradient shadow-lg fs-4 fw-medium ': cursor !== cursorDefault}">{{cursor}}
+    </span>
+  </div>
 </section>
 
 <!-- Interaction Zone -->
@@ -12,7 +16,7 @@
 <div class="interaction-zone d-flex flex-column align-items-center">
 
   <!-- Challenge Btn -->
-  <button class="btn btn-danger fs-5 rounded-pill" style="width: 360px;">
+  <button class="btn btn-danger fs-5" style="width: 360px;">
     !!&nbsp;&nbsp;&nbsp;CHALLENGE&nbsp;&nbsp;&nbsp;!!
   </button>
 
