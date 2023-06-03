@@ -26,6 +26,8 @@ export class GameComponent implements OnInit {
           // if a letter is typed then only enter key should work
           if(this.cursor !== this.gameService.cursor) {
             this.word += this.cursor;
+
+            this.gameService.rotatePlayers(true);
           }
 
           this.cursor = this.gameService.cursor;

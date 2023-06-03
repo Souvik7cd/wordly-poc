@@ -1,11 +1,17 @@
 .game {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  word-break: break-word;
+  position: relative;
   max-width: 360px;
-  font-family: monospace;
+  height: 20%;
+
+  .word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    word-break: break-word;
+    max-width: 360px;
+    font-family: monospace;
+  }
 }
 .interaction-zone {
   position: absolute;

@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { GameComponent } from './game/game.component';
 import { KeyboardComponent } from './game/keyboard/keyboard.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { PlayersComponent } from './game/players/players.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    KeyboardComponent
+    KeyboardComponent,
+    HeaderComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
