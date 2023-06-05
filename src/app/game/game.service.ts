@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Player } from '../models/player.model';
+import words from '../shared/util/en-dict.json';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
+
+  private EnglishWords = [...words];
+  private GameMode: number = 0; // regular mode
 
   players: Player[] = [
     { playerId: '#ALCX145', userName: 'Alice' },
@@ -29,11 +33,20 @@ export class GameService {
   get cursor() {
     return this.Cursor;
   }
+  get englishWords() {
+    return this.EnglishWords;
+  }
   get letterSubject() {
     return this.LetterSubject.asObservable();
   }
   get playerRotationSubject() {
     return this.PlayerRotationSubject.asObservable();
+  }
+  get gameMode() {
+    return this.GameMode;
+  }
+  set gameMode(gameMode: number) {
+    this.GameMode = gameMode;
   }
 
   public nextLetter(letter: string) {
