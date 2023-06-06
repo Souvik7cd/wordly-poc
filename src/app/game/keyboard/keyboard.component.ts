@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GameService } from '../game.service';
+import { LogService } from 'src/app/shared/services/log.service';
 
 @Component({
   selector: 'app-keyboard',
@@ -18,7 +19,10 @@ export class KeyboardComponent {
     return this.Keys;
   }
 
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private logService: LogService,
+  ) {}
 
   onLetterKeyClick(letter: string) {
     this.gameService.nextLetter(letter);

@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from './game.service';
-
-enum GameRoundStatusCode {
-  wordNotPossible,
-  wordPossible,
-  wordComplete,
-};
+import { LogService } from '../shared/services/log.service';
 
 @Component({
   selector: 'app-game',
@@ -18,9 +13,12 @@ export class GameComponent implements OnInit {
   cursor = "";
   word = "";
   checkWordIfLengthGreaterThan = 3;
-  gameRoundStatus: number = -1;
+  gameRoundStatus: 'wordNotPossible' | 'wordPossible' | 'wordComplete' = 'wordPossible';
 
-  constructor(private gameService: GameService) { }
+  constructor(
+    private gameService: GameService,
+    private logService: LogService,
+  ) { }
 
   ngOnInit(): void {
     this.cursor = this.gameService.cursor;
@@ -36,7 +34,7 @@ export class GameComponent implements OnInit {
           // if a letter is typed then only enter key should work
           if (this.cursor !== this.gameService.cursor) {
             this.word += this.cursor;
-            if (this.word.length > this.checkWordIfLengthGreaterThan) {
+            if (this.word.length > 1) {
               this.checkWordValidity();
             }
             this.gameService.rotatePlayers(true);
@@ -53,27 +51,28 @@ export class GameComponent implements OnInit {
   checkWordValidity() {
     let regex = new RegExp("^" + this.word.toLowerCase());
 
-    const testWord = this.gameService.englishWords.filter(d => regex.test(d))[0];
+    const testWord = this.gameService.englishWords.filter(d => regex.exec(d))[0];
 
     if (testWord !== undefined) {
-      if (testWord === this.word.toLowerCase()) {
-        console.log("complete " + testWord);
-        this.gameRoundStatus = GameRoundStatusCode.wordComplete;
-        this.cursor = "_";
-        alert("Game Over");
-        this.word = "";
-      }
-
-      else if (testWord.includes(this.word.toLowerCase())) {
-        console.log("possible " + testWord);
-        this.gameRoundStatus = GameRoundStatusCode.wordPossible;
+      if (this.word.length > this.checkWordIfLengthGreaterThan) {
+        if (testWord === this.word.toLowerCase()) {
+          this.logService.log("complete " + testWord);
+          this.gameRoundStatus = 'wordComplete';
+          this.cursor = "_";
+          alert("Game Over");
+          this.word = "";
+        }
+        else if (testWord.includes(this.word.toLowerCase())) {
+          this.logService.log("possible " + testWord);
+          this.gameRoundStatus = 'wordPossible';
+        }
       }
     }
-
     else {
-      console.log("not possible " + testWord);
-      this.gameRoundStatus = GameRoundStatusCode.wordNotPossible;
-      alert("Word Not Possible");
+      if (this.word.length > 1) {
+        this.logService.log("not possible " + testWord);
+        this.gameRoundStatus = 'wordNotPossible';
+      }
     }
   }
 }

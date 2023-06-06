@@ -10,13 +10,51 @@ export class GameService {
 
   private EnglishWords = [...words];
   private GameMode: number = 0; // regular mode
+  private InitialStartScore = 0;
 
   players: Player[] = [
-    { playerId: '#ALCX145', userName: 'Alice' },
-    { playerId: '#BOBA214', userName: 'Bob' },
-    { playerId: '#RCHD754', userName: 'Rich' },
-    { playerId: '#MICS154', userName: 'Michael Scott' },
-    { playerId: '#PAMH754', userName: 'Pamela' },
+    {
+      playerId: '#RED12319',
+      userName: 'Red',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
+    {
+      playerId: '#GRN33171',
+      userName: 'Green',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
+    {
+      playerId: '#BLU13103',
+      userName: 'Blue',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
+    {
+      playerId: '#CYN74171',
+      userName: 'Cyan',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
+    {
+      playerId: '#YEL17154',
+      userName: 'Yellow',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
+    {
+      playerId: '#MAGN7514',
+      userName: 'Magenta',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
+    {
+      playerId: '#BLK13117',
+      userName: 'Black',
+      currentScore: this.InitialStartScore,
+      previousScore: this.InitialStartScore,
+    },
   ];
 
   private Enter: string = '+';
@@ -78,5 +116,13 @@ export class GameService {
         this.nextPlayers(true);
       }
     }
+  }
+
+  public addScore(playerId: string, value: number) {
+
+  }
+
+  public setScore(playerId: string, value: number) {
+
   }
 }
