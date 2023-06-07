@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Player } from '../../models/player.model';
 import { GameService } from '../game.service';
+import { LogService } from 'src/app/shared/services/log.service';
 
 @Component({
   selector: 'app-players',
@@ -11,7 +12,10 @@ export class PlayersComponent implements OnInit {
 
   dispPlayers: Player[] = [];
 
-  constructor(private gameService: GameService) { }
+  constructor(
+    private gameService: GameService,
+    private logService: LogService,
+  ) { }
 
   ngOnInit(): void {
     const initialRotations = 2;
