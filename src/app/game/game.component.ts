@@ -21,6 +21,7 @@ export class GameComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.gameService.resetPlayers();
     this.cursor = this.gameService.cursor;
     this.cursorDefault = this.gameService.cursor;
     this.checkKeyPress();

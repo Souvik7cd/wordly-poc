@@ -12,7 +12,7 @@ export class GameService {
   private GameMode: number = 0; // regular mode
   private InitialStartScore = 0;
 
-  players: Player[] = [
+  playersInOrder: Player[] = [
     {
       playerId: '#RED12319',
       userName: 'Red',
@@ -56,6 +56,8 @@ export class GameService {
       previousScore: this.InitialStartScore,
     },
   ];
+
+  players = [...this.playersInOrder];
 
   private Enter: string = '+';
   private Cursor: string = '_';
@@ -116,6 +118,10 @@ export class GameService {
         this.nextPlayers(true);
       }
     }
+  }
+
+  public resetPlayers() {
+    this.players = [...this.playersInOrder];
   }
 
   public addScore(playerId: string, value: number) {

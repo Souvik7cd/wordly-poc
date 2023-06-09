@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="currURL == '/game'" ></app-header>
 <div class="container">
   <div class="row">
     <div class="
@@ -7,7 +7,7 @@
       col-xs-12
       game-container"
     >
-      <app-game></app-game>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

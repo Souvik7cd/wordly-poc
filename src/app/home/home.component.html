@@ -1,0 +1,15 @@
+<div class="home">
+  <div class="home-container d-flex flex-column align-items-center">
+    <h1 class="game-name-font" style="font-size: 2rem;">Word.ly</h1>
+    <p class="mb-5 text-center">Don't complete the word</p>
+
+    <button class="home-btn btn btn-light bg-gradient rounded-pill mt-4 mb-4"
+      (click)="openNewGameOptionsModal()">
+      Play Game
+    </button>
+    <a class="home-btn btn btn-outline-light bg-gradient rounded-pill mb-4">How to Play</a>
+    <a class="home-btn btn btn-outline-light bg-gradient rounded-pill mb-4">Preferences</a>
+  </div>
+</div>
+
+<app-new-game-options #optionsModal></app-new-game-options>

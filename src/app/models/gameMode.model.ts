@@ -1,4 +1,4 @@
-export class WordlyGame {
+/* export class WordlyGame {
 
   public gameModeID: number
   public gameModeName: string;
@@ -21,5 +21,26 @@ export class WordlyGame {
     this.checkWordIfLengthGreaterThan = checkWordIfLengthGreaterThan;
     this.shouldMatchPrefix = shouldMatchPrefix;
     this.shouldMatchSuffix = shouldMatchSuffix;
+  }
+} */
+
+interface WordlyGame {
+  gameModeID: number
+  gameModeName: string;
+  gameModeDescription: string;
+  checkWordIfLengthGreaterThan: number;
+  shouldMatchPrefix?: boolean;
+  shouldMatchSuffix?: boolean;
+}
+
+export class RegularWordlyGame implements WordlyGame {
+  gameModeID = 0;
+  gameModeName = 'Regular';
+  gameModeDescription = '';
+  shouldMatchPrefix = true;
+  checkWordIfLengthGreaterThan: number;
+
+  constructor(checkWordIfLengthGreaterThan: number) {
+    this.checkWordIfLengthGreaterThan = checkWordIfLengthGreaterThan;
   }
 }

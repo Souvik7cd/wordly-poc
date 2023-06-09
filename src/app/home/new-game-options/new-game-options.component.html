@@ -1,0 +1,57 @@
+<div [ngClass]="{'fade show': showOptions}" [ngStyle]="showOptions ? {'display' : 'block'} : {'display' : 'none'}"
+  class="modal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen-sm-down shadow-lg">
+    <div class="modal-content bg-light-subtle border-0">
+      <form #newGame="ngForm" (ngSubmit)="startGame()">
+        <div class="modal-header">
+          <h5 class="modal-title">New Game Options</h5>
+          <button type="button" class="btn-close" (click)="showOptions = false" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 row">
+            <label for="mode" class="col-sm-4 col-form-label">Game Mode</label>
+            <div class="col-sm-8">
+              <select name="mode" id="mode" [(ngModel)]="newGameOptions.mode" class="form-select"
+                aria-label="Game Mode Select">
+                <option selected value="regular">Regular</option>
+                <!-- <option value="reversed">Reversed</option>
+                <option value="alternating">Alternating</option> -->
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="players" class="col-sm-4 col-form-label">Number of Players</label>
+            <div class="col-sm-8">
+              <select name="players" id="players" [(ngModel)]="newGameOptions.players" class="form-select"
+                aria-label="Number of Players select">
+                <option selected value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="rounds" class="col-sm-4 col-form-label">Number of Rounds</label>
+            <div class="col-sm-8">
+              <select name="rounds" id="rounds" [(ngModel)]="newGameOptions.rounds" class="form-select"
+                aria-label="Number of Rounds select">
+                <option selected value="4">4 Rounds</option>
+                <option value="5">5 Rounds</option>
+                <option value="6">6 Rounds</option>
+                <option value="7">7 Rounds</option>
+                <option value="8">8 Rounds</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary text-light"
+            (click)="showOptions = false">Close</button>
+          <button type="submit" class="btn btn-light">Start Game</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
