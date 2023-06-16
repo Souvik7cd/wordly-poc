@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class LogService {
 
   log(msg: any) {
-    console.log(new Date() + ": " + JSON.stringify(msg));
+    const date = new Date();
+    const dateStr = date.toUTCString();
+    console.log(dateStr + ": " + JSON.stringify(msg));
   }
 }

@@ -1,7 +1,7 @@
 <div [ngClass]="{'fade show': showOptions}" [ngStyle]="showOptions ? {'display' : 'block'} : {'display' : 'none'}"
   class="modal" tabindex="-1">
   <div class="modal-dialog modal-fullscreen-sm-down shadow-lg">
-    <div class="modal-content bg-light-subtle border-0">
+    <div class="modal-content bg-dark-subtle border-0">
       <form #newGame="ngForm" (ngSubmit)="startGame()">
         <div class="modal-header">
           <h5 class="modal-title">New Game Options</h5>
@@ -47,9 +47,9 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary text-light"
+          <button type="button" class="btn btn-secondary bg-gradient"
             (click)="showOptions = false">Close</button>
-          <button type="submit" class="btn btn-light">Start Game</button>
+          <button type="submit" class="btn btn-dark bg-gradient">Start Game</button>
         </div>
       </form>
     </div>

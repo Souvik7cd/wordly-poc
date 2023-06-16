@@ -1,46 +1,26 @@
-/* export class WordlyGame {
+export class WordlyGame {
+  private static GameModeID = 0;
+  private static GameModeName = 'Regular';
+  private static GameModeDescription = '';
+  private static ShouldMatchPrefix = true;
+  private static CheckWordIfLengthGreaterThan = 3;
 
-  public gameModeID: number
-  public gameModeName: string;
-  public gameModeDescription: string;
-  public checkWordIfLengthGreaterThan: number;
-  public shouldMatchPrefix: boolean;
-  public shouldMatchSuffix: boolean;
-
-  constructor(
-    gameModeID: 0 | 1 | 2,
-    gameModeName: 'Regular' | 'Reversed' | 'Alternating',
-    gameModeDescription: string,
-    checkWordIfLengthGreaterThan: number,
-    shouldMatchPrefix: boolean = true,
-    shouldMatchSuffix: boolean = false
-  ) {
-    this.gameModeID = gameModeID;
-    this.gameModeName = gameModeName;
-    this.gameModeDescription = gameModeDescription;
-    this.checkWordIfLengthGreaterThan = checkWordIfLengthGreaterThan;
-    this.shouldMatchPrefix = shouldMatchPrefix;
-    this.shouldMatchSuffix = shouldMatchSuffix;
+  public static get gameModeID() {
+    return this.GameModeID;
   }
-} */
-
-interface WordlyGame {
-  gameModeID: number
-  gameModeName: string;
-  gameModeDescription: string;
-  checkWordIfLengthGreaterThan: number;
-  shouldMatchPrefix?: boolean;
-  shouldMatchSuffix?: boolean;
-}
-
-export class RegularWordlyGame implements WordlyGame {
-  gameModeID = 0;
-  gameModeName = 'Regular';
-  gameModeDescription = '';
-  shouldMatchPrefix = true;
-  checkWordIfLengthGreaterThan: number;
-
-  constructor(checkWordIfLengthGreaterThan: number) {
-    this.checkWordIfLengthGreaterThan = checkWordIfLengthGreaterThan;
+  public static get gameModeName() {
+    return this.GameModeName;
+  }
+  public static get gameModeDescription() {
+    return this.GameModeDescription;
+  }
+  public static get shouldMatchPrefix() {
+    return this.ShouldMatchPrefix;
+  }
+  public static get checkWordIfLengthGreaterThan() {
+    return this.CheckWordIfLengthGreaterThan;
+  }
+  public static set checkWordIfLengthGreaterThan(length: number) {
+    this.CheckWordIfLengthGreaterThan = length;
   }
 }

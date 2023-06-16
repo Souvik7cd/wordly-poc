@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavigationExtras } from '@angular/router';
 import { Router } from '@angular/router';
+import { GameOptions } from 'src/app/models/gameOptions.model';
 import { LogService } from 'src/app/shared/services/log.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { LogService } from 'src/app/shared/services/log.service';
 export class NewGameOptionsComponent {
 
   showOptions: boolean = false;
-  newGameOptions: any = {
+  newGameOptions: GameOptions = {
     mode: 'regular',
     players: 4,
     rounds: 4

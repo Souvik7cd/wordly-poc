@@ -32,6 +32,7 @@ export class PlayersComponent implements OnInit {
         if (isPlayersRotated) {
           this.dispPlayers = this.gameService.players.slice(-3);
           this.gameService.nextPlayers(false);
+          this.gameService.setCurrentPlayer(this.dispPlayers[1]);
         }
       }
     });

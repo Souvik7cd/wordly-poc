@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Player } from '../models/player.model';
 import words from '../shared/util/en-dict.json';
+import { LogService } from '../shared/services/log.service';
 
 @Injectable({
   providedIn: 'root'
@@ -64,8 +65,9 @@ export class GameService {
 
   private LetterSubject: Subject<string> = new Subject();
   private PlayerRotationSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private CurrentPlayer: BehaviorSubject<Player> = new BehaviorSubject(this.playersInOrder[0]);
 
-  constructor() { }
+  constructor(private logService: LogService) { }
 
   get enterKey() {
     return this.Enter;
@@ -82,6 +84,9 @@ export class GameService {
   get playerRotationSubject() {
     return this.PlayerRotationSubject.asObservable();
   }
+  get currentPlayerSubject() {
+    return this.CurrentPlayer.asObservable();
+  }
   get gameMode() {
     return this.GameMode;
   }
@@ -95,6 +100,10 @@ export class GameService {
 
   public nextPlayers(isPlayersRotated: boolean) {
     this.PlayerRotationSubject.next(isPlayersRotated);
+  }
+
+  public setCurrentPlayer(player: Player) {
+    this.CurrentPlayer.next(player);
   }
 
   public rotatePlayers(reverse = false) {
@@ -125,10 +134,20 @@ export class GameService {
   }
 
   public addScore(playerId: string, value: number) {
-
+    this.playersInOrder.map(player => {
+      if(player.playerId === playerId) {
+        player.currentScore += value;
+        this.logService.log("Player Name: " + player.userName + "; Current Score: " + player.currentScore);
+      }
+    });
   }
 
   public setScore(playerId: string, value: number) {
-
+    this.playersInOrder.map(player => {
+      if(player.playerId === playerId) {
+        player.currentScore = value;
+        this.logService.log("Player Name: " + player.userName + "; Current Score: " + player.currentScore);
+      }
+    });
   }
 }
